@@ -7,8 +7,13 @@
  *
  * @author alban
  */
+import javax.swing.*;
+import java.awt.*;
+
 public class Interface extends javax.swing.JFrame {
-    
+    private JeuChevaucheeFantastique jeu;
+    private CelluleGraphique[][] grille;
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Interface.class.getName());
 
     /**
@@ -16,6 +21,100 @@ public class Interface extends javax.swing.JFrame {
      */
     public Interface() {
         initComponents();
+        jeu = new JeuChevaucheeFantastique();
+        
+        int t = jeu.getTaille();
+        grille = new CelluleGraphique[t][t];
+        
+        this.setTitle("Chevauchée Fantastique - Niveau " + jeu.getNiveauActuel());
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.getContentPane().setLayout(new GridLayout(t, t));
+
+        for (int i = 0; i < t; i++) {
+            for (int j = 0; j < t; j++) {
+                final int r = i;
+                final int c = j;
+                grille[i][j] = new CelluleGraphique();
+                grille[i][j].addActionListener(e -> {
+                    if (jeu.deplacerCavalier(r, c)) {
+                        rafraichir();
+                        verifierEtatJeu();
+                    }
+                });
+                this.getContentPane().add(grille[i][j]);
+            }
+        }
+        rafraichir();
+        this.setSize(600, 600);
+        this.setLocationRelativeTo(null);
+    }
+
+    private void verifierEtatJeu() {
+    if (jeu.estTermine()) {
+        if (jeu.getNiveauActuel() == 2) {
+            int choix = JOptionPane.showConfirmDialog(this, 
+                "Bravo ! 2 victoires ! Voulez-vous agrandir le damier (Mode Difficile) ?", 
+                "Fin de session", JOptionPane.YES_NO_OPTION);
+                
+            if (choix == JOptionPane.YES_OPTION) {
+                jeu.activerModeDifficile();
+                jeu.initialiserNiveau(3); 
+                reconstruireGrille();  
+                this.setSize(800, 800); 
+                this.setLocationRelativeTo(null);
+            } else {
+                JOptionPane.showMessageDialog(this, "Merci d'avoir joué !");
+                System.exit(0);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Niveau réussi !");
+            jeu.initialiserNiveau(jeu.getNiveauActuel() + 1);
+            this.setTitle("La Chevauchée Fantastique - Niveau " + jeu.getNiveauActuel());
+            rafraichir();
+        }
+    } else if (!jeu.peutEncoreJouer()) {
+        JOptionPane.showMessageDialog(this, "Bloqué ! Recommençons ce niveau.");
+        jeu.initialiserNiveau(jeu.getNiveauActuel());
+        rafraichir();
+        }
+    }   
+
+    public void rafraichir() {
+        Case cp = jeu.getPosCavalier();
+        for (int i = 0; i < jeu.getTaille(); i++) {
+            for (int j = 0; j < jeu.getTaille(); j++) {
+                boolean estCav = (cp.getLigne() == i && cp.getColonne() == j);
+                grille[i][j].maj(jeu.getEtatCase(i, j), estCav, (i + j) % 2 == 0);
+            }
+        }
+    }
+
+    public void reconstruireGrille() {
+    this.setTitle("Mode DIFFICILES - Niveau " + jeu.getNiveauActuel());
+    this.getContentPane().removeAll();
+    
+    int t = jeu.getTaille();
+    this.getContentPane().setLayout(new GridLayout(t, t));
+    grille = new CelluleGraphique[t][t];
+
+    for (int i = 0; i < t; i++) {
+        for (int j = 0; j < t; j++) {
+            final int r = i;
+            final int c = j;
+            grille[i][j] = new CelluleGraphique();
+            grille[i][j].addActionListener(e -> {
+                if (jeu.deplacerCavalier(r, c)) {
+                    rafraichir();
+                    verifierEtatJeu();
+                }
+            });
+            this.getContentPane().add(grille[i][j]);
+        }
+    }
+    
+    this.revalidate();
+    this.repaint();
+    rafraichir();
     }
 
     /**
