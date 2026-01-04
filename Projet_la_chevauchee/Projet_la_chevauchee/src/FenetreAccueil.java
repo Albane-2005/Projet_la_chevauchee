@@ -35,6 +35,7 @@ public class FenetreAccueil extends javax.swing.JFrame {
         txt_accueil = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 204, 204));
 
         btn_jouer.setBackground(new java.awt.Color(180, 230, 180));
         btn_jouer.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
@@ -51,7 +52,9 @@ public class FenetreAccueil extends javax.swing.JFrame {
         txt_accueil.setBackground(new java.awt.Color(250, 230, 50));
         txt_accueil.setFont(new java.awt.Font("Verdana", 3, 18)); // NOI18N
         txt_accueil.setForeground(new java.awt.Color(255, 105, 180));
+        txt_accueil.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txt_accueil.setText("Bienvenue sur laChevauchée Fantastique");
+        txt_accueil.setToolTipText("");
         txt_accueil.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 105, 180), 3, true));
         txt_accueil.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txt_accueil.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
