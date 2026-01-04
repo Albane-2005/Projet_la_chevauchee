@@ -32,24 +32,23 @@ public class CelluleGraphique extends JButton {
         super.paintComponent(g);
         
         if (estClaire) {
-            g.setColor(new Color(255, 180, 220)); 
+            g.setColor(new Color(180, 230, 180)); 
         } else {
-            g.setColor(new Color(205, 20, 147)); 
+            g.setColor(new Color(80, 160, 80)); 
         }
         g.fillRect(0, 0, getWidth(), getHeight());
 
         if (etat == 1) {
-            g.setColor(new Color(255, 179, 71)); 
+            g.setColor(new Color(255, 105, 180, 180)); 
             g.fillOval(getWidth()/4, getHeight()/4, getWidth()/2, getHeight()/2);
         }
 
         if (estCavalier) {
-            g.setColor(new Color(250, 230, 50)); 
+            g.setColor(new Color(255, 170, 0)); 
             g.setFont(new Font("Serif", Font.BOLD, 50));
             g.drawString("\u265E", getWidth()/4, (int)(getHeight()/1.3));
         }
         
-        g.setColor(new Color(200, 0, 150)); 
-        g.drawRect(0, 0, getWidth(), getHeight());
+        g.setColor(Color.BLACK);
     }
 }
