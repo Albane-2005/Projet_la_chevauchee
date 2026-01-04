@@ -54,7 +54,7 @@ public class FenetreAccueil extends javax.swing.JFrame {
         txt_accueil.setFont(new java.awt.Font("Verdana", 3, 18)); // NOI18N
         txt_accueil.setForeground(new java.awt.Color(255, 153, 153));
         txt_accueil.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txt_accueil.setText("Bienvenue sur laChevauchée Fantastique");
+        txt_accueil.setText("Bienvenue sur la Chevauchée Fantastique");
         txt_accueil.setToolTipText("");
         txt_accueil.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 105, 180), 3, true));
         txt_accueil.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
