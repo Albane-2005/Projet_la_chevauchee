@@ -31,21 +31,52 @@ public class FenetreAccueil extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btn_jouer = new javax.swing.JButton();
+        txt_accueil = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btn_jouer.setText("Jouer");
+        btn_jouer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_jouerActionPerformed(evt);
+            }
+        });
+
+        txt_accueil.setText("Bienvenue sur la Chevauchée Fantastique");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(153, 153, 153)
+                        .addComponent(btn_jouer))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(txt_accueil)))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(txt_accueil)
+                .addGap(58, 58, 58)
+                .addComponent(btn_jouer)
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_jouerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_jouerActionPerformed
+ Interface jeuFenetre = new Interface();
+jeuFenetre.setVisible(true);
+this.dispose();
+    }//GEN-LAST:event_btn_jouerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -73,5 +104,7 @@ public class FenetreAccueil extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_jouer;
+    private javax.swing.JLabel txt_accueil;
     // End of variables declaration//GEN-END:variables
 }
