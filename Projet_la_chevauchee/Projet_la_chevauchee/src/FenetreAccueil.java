@@ -36,37 +36,47 @@ public class FenetreAccueil extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btn_jouer.setBackground(new java.awt.Color(180, 230, 180));
+        btn_jouer.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
+        btn_jouer.setForeground(new java.awt.Color(255, 105, 180));
         btn_jouer.setText("Jouer");
+        btn_jouer.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 105, 180), 2, true));
+        btn_jouer.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_jouer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_jouerActionPerformed(evt);
             }
         });
 
-        txt_accueil.setText("Bienvenue sur la Chevauchée Fantastique");
+        txt_accueil.setBackground(new java.awt.Color(250, 230, 50));
+        txt_accueil.setFont(new java.awt.Font("Verdana", 3, 18)); // NOI18N
+        txt_accueil.setForeground(new java.awt.Color(255, 105, 180));
+        txt_accueil.setText("Bienvenue sur laChevauchée Fantastique");
+        txt_accueil.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 105, 180), 3, true));
+        txt_accueil.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        txt_accueil.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addComponent(btn_jouer))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(txt_accueil)))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addGap(267, 267, 267)
+                .addComponent(btn_jouer, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(51, Short.MAX_VALUE)
+                .addComponent(txt_accueil, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(txt_accueil)
-                .addGap(58, 58, 58)
-                .addComponent(btn_jouer)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addComponent(txt_accueil, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addComponent(btn_jouer, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(97, Short.MAX_VALUE))
         );
 
         pack();
